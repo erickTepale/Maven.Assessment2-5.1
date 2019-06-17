@@ -10,7 +10,13 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by left-padding
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return null;
+        String padding = "";
+        for (int i = 0; i < amountOfPadding - stringToBePadded.length() ; i++) {
+            padding += " ";
+        }
+
+
+        return padding += stringToBePadded;
     }
 
     /**
@@ -19,7 +25,14 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-        return null;
+        String basic = stringToBePadded;
+        String space = "";
+        for (int i = 0; i <Math.abs(stringToBePadded.length() - amountOfPadding); i++) {
+            space += " ";
+        }
+
+
+        return basic + space;
     }
 
     /**
@@ -28,7 +41,11 @@ public class StringUtils {
      * @return the string repeated and concatenated `n` times
      */
     public static String repeatString(String stringToBeRepeated, int numberOfTimeToRepeat) {
-        return null;
+        String basic = stringToBeRepeated;
+        for (int i = 1; i < numberOfTimeToRepeat ; i++) {
+            stringToBeRepeated += basic;
+        }
+        return stringToBeRepeated;
     }
 
     /**
@@ -36,7 +53,7 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+        return string.matches("^[a-z A-Z]+$");
     }
 
     /**
@@ -44,7 +61,7 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        return null;
+        return string.matches("[0-9 ]+");
     }
 
     /**
@@ -52,6 +69,6 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+        return string.matches("^[!@$%^&()*]+");
     }
 }
