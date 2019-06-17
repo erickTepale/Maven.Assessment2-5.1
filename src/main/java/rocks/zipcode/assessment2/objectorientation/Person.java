@@ -51,10 +51,9 @@ public class Person {
 
     public boolean equals(Person a) {
 
-
-        return (this.id.equals(a.id) &&
-                this.name.equals(a.name) &&
-                this.address.equals(a.address));
+        return ((this.id.equals(a.id) || (this.id == null && a.id == null)) &&
+                (this.name.equals(a.name) || (this.name == null && a.name == null)) &&
+                (this.address.equals(a.address) || (this.address == null && a.address == null) ));
     }
 
     @Override

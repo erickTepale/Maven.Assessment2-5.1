@@ -81,7 +81,7 @@ public class Address{
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zipcode='" + zipcode + '\'' +
-                "}";
+                '}';
     }
 
     public boolean equals(Address address) {
