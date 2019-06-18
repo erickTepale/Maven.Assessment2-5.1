@@ -1,5 +1,8 @@
 package rocks.zipcode.assessment2.objectorientation;
 
+import java.util.Comparator;
+import java.util.Objects;
+
 /**
  * @author leon on 28/11/2018.
  */
@@ -84,13 +87,39 @@ public class Address{
                 '}';
     }
 
-    public boolean equals(Address address) {
-        return (this.addressLine1.equals(address.addressLine1) &&
-            this.addressLine2.equals(address.addressLine2) &&
-            this.city.equals(address.city) &&
-            this.state.equals(address.state) &&
-            this.zipcode.equals(address.zipcode));
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Address)) return false;
+        Address address = (Address) o;
+        return Objects.equals(addressLine1, address.addressLine1) &&
+                Objects.equals(addressLine2, address.addressLine2) &&
+                Objects.equals(city, address.city) &&
+                Objects.equals(state, address.state) &&
+                Objects.equals(zipcode, address.zipcode);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(addressLine1, addressLine2, city, state, zipcode);
+    }
+
+
+//    @Override
+//    public boolean equals(Object o) {
+////        return Objects.equals(this.addressLine1, ) &&
+////                Objects.equals(this.addressLine2, address.addressLine2) &&
+////                Objects.equals(this.city, address.city) &&
+////                Objects.equals(this.state, address.state) &&
+////                Objects.equals(this.zipcode, address.state);
+//
+////        return (this.addressLine1.equals(address.addressLine1) &&
+////            this.addressLine2.equals(address.addressLine2) &&
+////            this.city.equals(address.city) &&
+////            this.state.equals(address.state) &&
+////            this.zipcode.equals(address.zipcode));
+//
+//    }
+
 
 }

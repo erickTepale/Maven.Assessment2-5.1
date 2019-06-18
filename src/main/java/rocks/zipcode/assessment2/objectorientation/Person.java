@@ -1,5 +1,8 @@
 package rocks.zipcode.assessment2.objectorientation;
 
+import javax.naming.spi.ObjectFactoryBuilder;
+import java.util.Objects;
+
 /**
  * @author leon on 28/11/2018.
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Address` class before attempting this class
@@ -49,13 +52,6 @@ public class Person {
         this.address = address;
     }
 
-    public boolean equals(Person a) {
-
-        return ((this.id.equals(a.id) || (this.id == null && a.id == null)) &&
-                (this.name.equals(a.name) || (this.name == null && a.name == null)) &&
-                (this.address.equals(a.address) || (this.address == null && a.address == null) ));
-    }
-
     @Override
     public String toString() {
         return "Person{" +
@@ -63,5 +59,20 @@ public class Person {
                 ", name='" + name + '\'' +
                 ", address=" + address +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return Objects.equals(id, person.id) ||
+                Objects.equals(name, person.name) ||
+                Objects.equals(address, person.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address);
     }
 }
